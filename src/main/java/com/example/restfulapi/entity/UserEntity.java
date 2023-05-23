@@ -16,6 +16,10 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 public class UserEntity extends BaseEntity{
+    @Id //not null, primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment
+    private Long id; //chi co getter ko co setter
+
     @Column
     private String name;
 
@@ -31,10 +35,10 @@ public class UserEntity extends BaseEntity{
     @Column
     private String password;
 
-    @ManyToMany //tao bang trung gian va tao 2 khoa trung gian
-    @JoinTable(name = "user_role", //ten table
-                joinColumns = @JoinColumn(name = "user_id"), //mapping khoa chinh bang hien tai
-                inverseJoinColumns = @JoinColumn(name = "role_id") //mapping khoa chinh bang 2
-    )
-    private List<RoleEntity> roles = new ArrayList<>();
+//    @ManyToMany //tao bang trung gian va tao 2 khoa trung gian
+//    @JoinTable(name = "user_role", //ten table
+//                joinColumns = @JoinColumn(name = "user_id"), //mapping khoa chinh bang hien tai
+//                inverseJoinColumns = @JoinColumn(name = "role_id") //mapping khoa chinh bang 2
+//    )
+//    private List<RoleEntity> roles = new ArrayList<>();
 }
